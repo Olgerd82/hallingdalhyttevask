@@ -5,10 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <title>Hallingdal Hyttevask og Maling — profesjonell rengjøring og maling i Hallingdal</title>
+<meta name="description" content="Hallingdal Hyttevask og Maling — profesjonell rengjøring og maling av hytter og boliger i hele Hallingdal. Gratis befaring. Ring 405 91 803.">
+<meta property="og:title" content="Hallingdal Hyttevask og Maling">
+<meta property="og:description" content="Profesjonell rengjøring og maling i Hallingdal. Gratis og uforpliktende befaring.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://olgerd82.github.io/hallingdalhyttevask/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
 <style>
   :root {
     --navy: #001027;       /* тёмно-синий из лого */
@@ -90,6 +95,13 @@
   .shot:last-child span { background: var(--green); }
   .pair figcaption { padding: .8rem 1.1rem; font-weight: 800; font-size: .92rem; color: var(--navy); }
 
+  .shot { cursor: zoom-in; }
+  #lb { position: fixed; inset: 0; background: rgba(0,16,39,.9); display: none; align-items: center; justify-content: center; z-index: 100; cursor: zoom-out; padding: 2vh 2vw; }
+  #lb.open { display: flex; }
+  #lb img { max-width: 96vw; max-height: 96vh; border-radius: 8px; }
+
+  .burger { display: none; font-size: 1.6rem; color: var(--navy); cursor: pointer; user-select: none; padding: .2rem .6rem; }
+
   .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
   .review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; box-shadow: 0 4px 14px rgba(27,47,78,.05); }
   .stars { color: #f0a500; letter-spacing: .15em; font-size: .9rem; }
@@ -118,7 +130,10 @@
   @media (max-width: 800px) {
     .hero-inner { grid-template-columns: 1fr; }
     .photo-slot { max-width: 340px; margin: 0 auto; width: 100%; }
-    nav { display: none; }
+    .burger { display: block; }
+    nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 1.1rem; background: #fff; border-bottom: 1px solid var(--line); padding: 1.2rem 5vw; box-shadow: 0 10px 20px rgba(0,16,39,.08); }
+    #menu:checked ~ nav { display: flex; }
+    .shot img { height: 160px; }
   }
 </style>
 </head>
@@ -129,6 +144,8 @@
     <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:52px; width:auto; display:block;">
     <b>Hallingdal<small>Hyttevask og Maling</small></b>
   </a>
+  <input type="checkbox" id="menu" hidden>
+  <label for="menu" class="burger" aria-label="Meny">☰</label>
   <nav>
     <a href="#tjenester">Tjenester</a>
     <a href="#omoss">Om oss</a>
@@ -324,5 +341,20 @@
   <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · <a href="../">Til oversikt</a></small>
 </footer>
 
+<div id="lb" role="dialog" aria-label="Forstørret bilde"><img alt=""></div>
+<script>
+  var lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(function (im) {
+    im.addEventListener('click', function () {
+      lbImg.src = im.src.replace('.jpg', '-full.jpg');
+      lb.classList.add('open');
+    });
+  });
+  function closeLb() { lb.classList.remove('open'); lbImg.removeAttribute('src'); }
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+  var menu = document.getElementById('menu');
+  document.querySelector('nav').addEventListener('click', function () { menu.checked = false; });
+</script>
 </body>
 </html>
