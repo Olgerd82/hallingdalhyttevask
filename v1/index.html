@@ -4,50 +4,287 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>Hallingdal Hyttevask — profesjonell hyttevask i Hallingdal</title>
+<title>Hallingdal Hyttevask og Maling — profesjonell rengjøring og maling i Hallingdal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --green-dark: #14301c;
+    --green: #1d4527;
+    --green-panel: #245231;
+    --cream: #f5f2e6;
+    --muted: #c8d4bf;
+    --accent: #e4ef67;
+    --line: rgba(245,242,230,.16);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: system-ui, -apple-system, sans-serif; color: #1f2a24; background: #fff; line-height: 1.6; }
-  header { padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-  .logo { font-weight: 700; font-size: 1.1rem; color: #2e6b4f; }
-  nav a { margin-left: 1.5rem; text-decoration: none; color: #444; font-size: .95rem; }
-  .hero { padding: 6rem 2rem; text-align: center; background: linear-gradient(180deg, #eef5f0, #fff); }
-  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
-  .hero p { color: #555; max-width: 560px; margin: 0 auto 2rem; }
-  .btn { display: inline-block; background: #2e6b4f; color: #fff; padding: .9rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
-  section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; }
-  h2 { margin-bottom: 1.5rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-  .item { background: #f7faf8; border-radius: 10px; padding: 1.5rem; }
-  .item h3 { margin-bottom: .4rem; font-size: 1.05rem; }
-  footer { padding: 2rem; text-align: center; color: #888; font-size: .9rem; border-top: 1px solid #eee; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', system-ui, sans-serif; background: var(--green-dark); color: var(--cream); line-height: 1.65; }
+  .script { font-family: 'Caveat', cursive; color: var(--accent); }
+  a { color: inherit; }
+
+  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 5vw; position: sticky; top: 0; background: rgba(20,48,28,.94); backdrop-filter: blur(6px); z-index: 10; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .brand b { font-size: 1rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; }
+  .brand b small { display: block; font-size: .68rem; color: var(--accent); letter-spacing: .14em; }
+  nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  nav a { text-decoration: none; font-size: .85rem; font-weight: 600; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+
+  .hero { padding: 4rem 5vw 3rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; max-width: 1150px; margin: 0 auto; }
+  .hero .script { font-size: 2rem; display: block; margin-bottom: .6rem; }
+  .hero h1 { font-size: clamp(1.9rem, 4.5vw, 3.1rem); font-weight: 900; text-transform: uppercase; line-height: 1.15; letter-spacing: .02em; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { margin: 1.2rem 0 2rem; color: var(--muted); max-width: 34rem; }
+  .btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .95rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: .95rem; }
+  .btn-primary { background: var(--accent); color: #1c3a12; }
+  .btn-ghost { border: 2px solid var(--accent); color: var(--accent); }
+  .btn:hover { filter: brightness(1.08); }
+
+  .photo-slot { aspect-ratio: 4/5; border: 2px dashed rgba(228,239,103,.5); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; color: var(--muted); background: rgba(255,255,255,.03); text-align: center; padding: 1rem; }
+  .photo-slot .script { font-size: 1.5rem; }
+
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 0 5vw 3rem; max-width: 1150px; margin: 0 auto; }
+  .badge { flex: 1 1 240px; display: flex; align-items: center; gap: .9rem; background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.3rem; font-weight: 800; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+  .badge svg { flex: none; width: 30px; height: 30px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+
+  .mountains { display: block; width: 100%; height: 70px; }
+
+  section { padding: 4rem 5vw; }
+  .inner { max-width: 1150px; margin: 0 auto; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; text-transform: uppercase; margin-bottom: .4rem; }
+  .kicker { display: block; font-size: 1.6rem; margin-bottom: .2rem; }
+  .lead { color: var(--muted); max-width: 42rem; margin-bottom: 2.2rem; }
+
+  .alt { background: var(--green); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; }
+  .card { background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; }
+  .card h3 { font-size: 1.02rem; font-weight: 800; margin-bottom: .45rem; color: var(--accent); }
+  .card p { font-size: .93rem; color: var(--muted); }
+
+  .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .8rem 2rem; }
+  .why li { list-style: none; display: flex; gap: .7rem; align-items: baseline; font-weight: 600; font-size: .96rem; }
+  .why li::before { content: "✔"; color: var(--accent); font-weight: 900; }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; counter-reset: step; }
+  .step { position: relative; background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.2rem 1.2rem; counter-increment: step; }
+  .step::before { content: counter(step); position: absolute; top: -.9rem; left: 1rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--accent); color: #1c3a12; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .step p { font-size: .92rem; font-weight: 600; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+  .gallery .photo-slot { aspect-ratio: 4/3; }
+
+  .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
+  .review { background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+  .stars { color: var(--accent); letter-spacing: .15em; font-size: .9rem; }
+  .review p { font-size: .93rem; color: var(--cream); flex: 1; }
+  .review b { font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .fb-note { margin-top: 1.6rem; text-align: center; font-weight: 700; color: var(--accent); }
+  .fb-note a { color: inherit; }
+
+  .areas { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .areas span { background: var(--green-panel); border: 1px solid var(--line); border-radius: 999px; padding: .45rem 1.2rem; font-weight: 700; font-size: .9rem; }
+
+  .cta { text-align: center; }
+  .cta .script { font-size: 2.2rem; display: block; }
+  .cta h2 { margin-bottom: 1rem; }
+  .cta p { color: var(--muted); margin-bottom: 1.8rem; }
+
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.3rem; }
+  .contact-grid .card { text-align: center; }
+  .contact-grid .card h3 { color: var(--cream); }
+  .contact-grid a { color: var(--accent); font-weight: 800; text-decoration: none; word-break: break-all; }
+
+  footer { background: #0f2415; padding: 2.2rem 5vw; text-align: center; font-size: .85rem; color: var(--muted); }
+  footer .script { font-size: 1.6rem; display: block; margin-bottom: .4rem; }
+  footer small { display: block; margin-top: .8rem; color: #7d8f74; }
+  footer a { color: #7d8f74; }
+
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+    .photo-slot { max-width: 340px; margin: 0 auto; width: 100%; }
+    nav { display: none; }
+  }
 </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Hallingdal Hyttevask</div>
-    <nav>
-      <a href="#tjenester">Tjenester</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
-  <div class="hero">
-    <h1>Ren hytte — uten stress</h1>
-    <p>Vi tar oss av vask av hytta di i Hallingdal, slik at den alltid er klar for deg og gjestene dine.</p>
-    <a class="btn" href="#kontakt">Få tilbud</a>
-  </div>
-  <section id="tjenester">
-    <h2>Tjenester</h2>
-    <div class="grid">
-      <div class="item"><h3>Utvask etter opphold</h3><p>Grundig rengjøring etter utleie eller eget besøk.</p></div>
-      <div class="item"><h3>Sesongvask</h3><p>Hovedrengjøring før og etter sesongen.</p></div>
-      <div class="item"><h3>Fast avtale</h3><p>Regelmessig vask til fast pris.</p></div>
+
+<header>
+  <a class="brand" href="#top">
+    <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+      <polyline points="10,36 32,14 54,36" fill="none" stroke="#e4ef67" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="27" y="28" width="10" height="10" fill="#e4ef67"/>
+      <path d="M8 48 Q22 42 34 48 T60 46" fill="none" stroke="#7fb069" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>
+    <b>Hallingdal<small>Hyttevask og Maling</small></b>
+  </a>
+  <nav>
+    <a href="#tjenester">Tjenester</a>
+    <a href="#omoss">Om oss</a>
+    <a href="#referanser">Referanser</a>
+    <a href="#omrader">Områder</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<div class="hero" id="top">
+  <div>
+    <span class="script">Din hytte – vårt ansvar! ♡</span>
+    <h1>Profesjonell <span>rengjøring</span> og <span>maling</span> i Hallingdal</h1>
+    <p>Vi jobber effektivt, nøye og tilpasser oss dine behov. Grundig rengjøring og profesjonelt malerarbeid for hytter, boliger og næring — kvalitet, pålitelighet og fornøyde kunder er alltid vår høyeste prioritet.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="tel:+4740591803">Bestill gratis befaring</a>
+      <a class="btn btn-ghost" href="mailto:hallingdalarbeid88@gmail.com">Be om pristilbud</a>
     </div>
-  </section>
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>E-post: post@hallingdalhyttevask.no<br>Telefon: +47 000 00 000</p>
-  </section>
-  <footer>© 2026 Hallingdal Hyttevask · <a href="../">Tilbake til oversikt</a></footer>
+  </div>
+  <div class="photo-slot">
+    <span class="script">Foto kommer her</span>
+    <span style="font-size:.85rem">Plass til bilde</span>
+  </div>
+</div>
+
+<div class="badges">
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+    Rent og innbydende
+  </div>
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    Pålitelig og nøye
+  </div>
+  <div class="badge">
+    <svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 12l4-8c1.5 0 2.5 1 2.2 2.6L12.6 10H19c1.1 0 2 .9 2 2l-1.6 6.5c-.2 1-1 1.5-2 1.5H7"/></svg>
+    Gode priser og rask respons
+  </div>
+</div>
+
+<svg class="mountains" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#1d4527"/>
+</svg>
+
+<section class="alt" id="omoss">
+  <div class="inner">
+    <span class="kicker script">Hvem er vi?</span>
+    <h2>Om oss</h2>
+    <p class="lead">Hallingdal Hyttevask og Maling er et lokalt firma som tilbyr profesjonell rengjøring og maling i Hallingdal. Vi legger stor vekt på kvalitet, punktlighet og grundig arbeid — hvert oppdrag utføres med stor nøyaktighet, slik at kundene våre kan føle seg trygge på resultatet.</p>
+    <p class="lead" style="margin-bottom:0">Enten du trenger flyttevask, vask etter utleie eller maling av hytte og hus, kan du stole på at vi leverer et resultat du blir fornøyd med.</p>
+  </div>
+</section>
+
+<section id="tjenester">
+  <div class="inner">
+    <span class="kicker script">Hva vi gjør</span>
+    <h2>Våre tjenester</h2>
+    <p class="lead">Fra skittent til skinnende rent — vi tar oss av detaljene.</p>
+    <div class="grid">
+      <div class="card"><h3>Flyttevask</h3><p>Grundig rengjøring ved utflytting, utført etter høye kvalitetsstandarder.</p></div>
+      <div class="card"><h3>Grundig vask</h3><p>Grundig rengjøring av hytter, boliger og leiligheter.</p></div>
+      <div class="card"><h3>Vask etter utleie</h3><p>Effektiv rengjøring etter utleie, slik at boligen er klar for neste gjest.</p></div>
+      <div class="card"><h3>Vindusvask</h3><p>Innvendig og utvendig vindusvask for et skinnende rent resultat.</p></div>
+      <div class="card"><h3>Utvendig maling</h3><p>Profesjonell maling og beising av hus, hytter, garasjer og andre utvendige flater.</p></div>
+      <div class="card"><h3>Innvendig maling</h3><p>Maling av vegger, tak, lister, dører og andre innvendige overflater.</p></div>
+      <div class="card"><h3>Skraping og klargjøring før maling</h3><p>Vi utfører skraping, rengjøring og nødvendig forarbeid for å sikre et holdbart og pent maleresultat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <span class="kicker script">Kvalitet du kan stole på</span>
+    <h2>Hvorfor velge oss?</h2>
+    <ul class="why" style="margin-top:1.6rem">
+      <li>Profesjonelt utført arbeid</li>
+      <li>Høy kvalitet</li>
+      <li>Punktlig oppmøte</li>
+      <li>Konkurransedyktige priser</li>
+      <li>Gratis befaring</li>
+      <li>Fast kontaktperson</li>
+      <li>Moderne utstyr</li>
+      <li>Fornøydgaranti</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <span class="kicker script">Enkelt og trygt</span>
+    <h2>Slik fungerer det</h2>
+    <div class="steps" style="margin-top:2rem">
+      <div class="step"><p>Kontakt oss.</p></div>
+      <div class="step"><p>Vi kommer på gratis befaring.</p></div>
+      <div class="step"><p>Du mottar et uforpliktende tilbud.</p></div>
+      <div class="step"><p>Vi utfører arbeidet til avtalt tid.</p></div>
+      <div class="step"><p>Du nyter resultatet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <span class="kicker script">Gi hytta nytt liv</span>
+    <h2>Se forskjellen</h2>
+    <p class="lead">Her kan du se noen av prosjektene våre før og etter utført arbeid.</p>
+    <div class="gallery">
+      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
+      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
+      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="referanser">
+  <div class="inner">
+    <span class="kicker script">Ekte tilbakemeldinger</span>
+    <h2>Hva sier kundene våre?</h2>
+    <p class="lead">100&nbsp;% anbefalt på Facebook.</p>
+    <div class="reviews">
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales mye! Har brukt dem for å vaske etter og før utleie av hytta vår og er kjempefornøyd!»</p><b>Mick Draeger</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales virkelig! Veldig hyggelige mennesker som gjorde en grundig og nøye jobb. Profesjonelle fra start til slutt – vi er kjempefornøyde!»</p><b>Martine Steen-Hansen</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke og pålitelige folk. Anbefales!»</p><b>Nils Erland Mikkelsen</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Tusen takk for flott arbeid! Huset ble skinnende rent etter grundig vask. Hyggelige, effektive og pålitelige. Anbefales på det varmeste.»</p><b>Ole Kristian Kolstadbråten</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Brukte disse på vask hjemme. Meget fornøyd, og vil anbefale dem. Raske og effektive.»</p><b>Terje Dokken</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke, hyggelige damer som gjorde en bra vaskejobb hos oss. De tok vindusvask innvendig, samt utvendig. Resultatet ble veldig bra! De var nøye og gjorde en god jobb.»</p><b>Tonje Gauteplass-Løstegård</b></div>
+    </div>
+    <p class="fb-note">Følg oss på <a href="https://www.facebook.com/share/1HPoJWWKtW/" target="_blank" rel="noopener">Facebook</a> — der finner du alle omtalene våre.</p>
+  </div>
+</section>
+
+<section class="alt" id="omrader">
+  <div class="inner">
+    <span class="kicker script">Din lokale ekspert</span>
+    <h2>Vi dekker hele Hallingdal</h2>
+    <div class="areas" style="margin-top:1.6rem">
+      <span>Nesbyen</span><span>Gol</span><span>Hemsedal</span><span>Ål</span><span>Geilo</span><span>Flå</span><span>Hol</span><span>Torpo</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="kontakt">
+  <div class="inner">
+    <span class="script">Vi tilbyr gode og konkurransedyktige priser! ♡</span>
+    <h2>Trenger du hjelp?</h2>
+    <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt.</p>
+    <div class="btns" style="justify-content:center; margin-bottom:3rem">
+      <a class="btn btn-primary" href="tel:+4740591803">Ring 405 91 803</a>
+      <a class="btn btn-ghost" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
+    </div>
+    <div class="contact-grid">
+      <div class="card"><h3>📞 Telefon</h3><a href="tel:+4740591803">+47 405 91 803</a></div>
+      <div class="card"><h3>📧 E-post</h3><a href="mailto:hallingdalarbeid88@gmail.com">hallingdalarbeid88@gmail.com</a></div>
+      <div class="card"><h3>📍 Område</h3><span style="font-weight:800">Hallingdal</span></div>
+      <div class="card"><h3>👍 Facebook</h3><a href="https://www.facebook.com/share/1HPoJWWKtW/" target="_blank" rel="noopener">Hallingdal Hyttevask og Maling</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="script">Rent. Pent. Profesjonelt.</span>
+  <div><b>Hallingdal Hyttevask og Maling</b> — profesjonell rengjøring og maling i Hallingdal.</div>
+  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · <a href="../">Til oversikt</a></small>
+</footer>
+
 </body>
 </html>
