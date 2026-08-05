@@ -63,7 +63,7 @@
   .badge { flex: 1 1 240px; display: flex; align-items: center; gap: .9rem; background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.3rem; font-weight: 800; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
   .badge svg { flex: none; width: 30px; height: 30px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
 
-  .pan-band { position: relative; aspect-ratio: 1920 / 314; min-height: 160px; margin-top: -110px; background: url('../assets/panorama.jpg') center/100% 100% no-repeat; }
+  .pan-band { position: relative; width: 100%; aspect-ratio: 1920 / 314; margin-top: -110px; background: url('../assets/panorama.jpg') center/100% 100% no-repeat; }
   .pan-band::after { content:''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(0deg, #012313, rgba(1,35,19,0)); }
   .mountains { display: block; width: 100%; height: 70px; }
 
@@ -147,6 +147,11 @@
     .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
     .photo-slot { max-width: 340px; margin: 0 auto; width: 100%; }
     .burger { display: block; }
+    .pan-band { aspect-ratio: auto; height: 150px; margin-top: 0; background-size: cover; background-position: center 35%; }
+    header:not(.solid) { background: rgba(20,48,28,.94); border-bottom: 1px solid var(--line); }
+    header:not(.solid) .brand b { color: var(--cream); }
+    header:not(.solid) .brand b small { color: var(--accent); }
+    header:not(.solid) .burger { color: var(--accent); }
     nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 1.1rem; background: var(--green-dark); border-bottom: 1px solid var(--line); padding: 1.2rem 5vw; }
     #menu:checked ~ nav { display: flex; }
     .shot img { height: 160px; }
