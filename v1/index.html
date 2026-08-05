@@ -372,7 +372,7 @@
       <input type="email" name="epost" placeholder="Din e-post" required>
       <input type="tel" name="telefon" placeholder="Ditt telefonnummer">
       <textarea name="melding" rows="5" placeholder="Din forespørsel..." required></textarea>
-      <label class="consent"><input type="checkbox" required> Jeg samtykker til at opplysningene brukes til å besvare henvendelsen min.</label>
+      <label class="consent"><input type="checkbox" required> Jeg samtykker til at opplysningene brukes til å besvare henvendelsen min. <a href="../personvern.html" target="_blank" rel="noopener">Les personvernerklæringen</a>.</label>
       <button type="submit" class="btn btn-primary">Send inn</button>
       </form>
     </div>
@@ -392,7 +392,7 @@
 <footer>
   <span class="script">Rent. Pent. Profesjonelt.</span>
   <div><b>Hallingdal Hyttevask og Maling</b> — profesjonell rengjøring og maling i Hallingdal.</div>
-  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · Illustrasjon: <a href="https://www.vecteezy.com" target="_blank" rel="noopener">Vecteezy.com</a> · <a href="../">Til oversikt</a></small>
+  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · Illustrasjon: <a href="https://www.vecteezy.com" target="_blank" rel="noopener">Vecteezy.com</a> · <a href="../personvern.html">Personvern</a> · <a href="../">Til oversikt</a></small>
 </footer>
 
 <div id="lb" role="dialog" aria-label="Forstørret bilde"><img alt=""></div>
@@ -431,6 +431,41 @@
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
       new maplibregl.Marker({ color: '#54874b' }).setLngLat([9.1320, 60.5636]).addTo(map);
     });
+</script>
+
+<style>
+  #cookiebar { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 200; background: #012313; color: #f5f2e6; border-radius: 12px; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,.35); max-width: 900px; margin: 0 auto; font-size: .92rem; }
+  #cookiebar a { color: #afcd2f; }
+  #cookiebar .ck-btns { display: flex; gap: .6rem; margin-left: auto; }
+  #cookiebar button { border: 0; border-radius: 8px; padding: .6rem 1.3rem; font-weight: 800; cursor: pointer; font-family: inherit; font-size: .9rem; }
+  #ck-yes { background: #afcd2f; color: #012313; }
+  #ck-no { background: transparent; color: #f5f2e6; border: 1px solid rgba(245,242,230,.4); }
+</style>
+<script>
+(function () {
+  var GA_ID = 'G-XXXXXXXXXX'; // TODO: заменить на настоящий Measurement ID
+  function loadGA() {
+    if (GA_ID.indexOf('XXXX') !== -1) return; // не подключать, пока нет ID
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+  var c = localStorage.getItem('cookie-consent');
+  if (c === 'yes') { loadGA(); return; }
+  if (c === 'no') { return; }
+  var b = document.createElement('div');
+  b.id = 'cookiebar';
+  b.innerHTML = '<span>Vi bruker informasjonskapsler til anonym besøksstatistikk, slik at vi kan forbedre nettsiden. <a href="../personvern.html">Les mer i personvernerklæringen</a>.</span>' +
+    '<div class="ck-btns"><button id="ck-yes">Godta</button><button id="ck-no">Avslå</button></div>';
+  document.body.appendChild(b);
+  document.getElementById('ck-yes').onclick = function () { localStorage.setItem('cookie-consent', 'yes'); b.remove(); loadGA(); };
+  document.getElementById('ck-no').onclick = function () { localStorage.setItem('cookie-consent', 'no'); b.remove(); };
+})();
 </script>
 </body>
 </html>
