@@ -8,14 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/logo.png">
 <style>
   :root {
-    --green-dark: #14301c;
-    --green: #1d4527;
-    --green-panel: #245231;
+    --green-dark: #012313;   /* фон визитки */
+    --green: #04331c;
+    --green-panel: #0a4123;
     --cream: #f5f2e6;
-    --muted: #c8d4bf;
-    --accent: #e4ef67;
+    --muted: #bccfb4;
+    --accent: #afcd2f;       /* салатовый скрипт с визитки */
+    --accent-2: #87b425;     /* ярко-зелёный акцент визитки */
     --line: rgba(245,242,230,.16);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,11 +41,11 @@
   .hero p { margin: 1.2rem 0 2rem; color: var(--muted); max-width: 34rem; }
   .btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn { display: inline-block; padding: .95rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: .95rem; }
-  .btn-primary { background: var(--accent); color: #1c3a12; }
+  .btn-primary { background: var(--accent); color: #012313; }
   .btn-ghost { border: 2px solid var(--accent); color: var(--accent); }
   .btn:hover { filter: brightness(1.08); }
 
-  .photo-slot { aspect-ratio: 4/5; border: 2px dashed rgba(228,239,103,.5); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; color: var(--muted); background: rgba(255,255,255,.03); text-align: center; padding: 1rem; }
+  .photo-slot { aspect-ratio: 4/5; border: 2px dashed rgba(175,205,47,.5); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; color: var(--muted); background: rgba(255,255,255,.03); text-align: center; padding: 1rem; }
   .photo-slot .script { font-size: 1.5rem; }
 
   .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 0 5vw 3rem; max-width: 1150px; margin: 0 auto; }
@@ -71,11 +73,16 @@
 
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; counter-reset: step; }
   .step { position: relative; background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.2rem 1.2rem; counter-increment: step; }
-  .step::before { content: counter(step); position: absolute; top: -.9rem; left: 1rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--accent); color: #1c3a12; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .step::before { content: counter(step); position: absolute; top: -.9rem; left: 1rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--accent); color: #012313; font-weight: 900; display: flex; align-items: center; justify-content: center; }
   .step p { font-size: .92rem; font-weight: 600; }
 
-  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-  .gallery .photo-slot { aspect-ratio: 4/3; }
+  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.3rem; }
+  .pair { background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 0; }
+  .pair .imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .shot { position: relative; }
+  .shot img { display: block; width: 100%; height: 230px; object-fit: cover; }
+  .shot span { position: absolute; left: .6rem; bottom: .6rem; background: rgba(1,35,19,.85); color: var(--accent); font-weight: 800; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .7rem; border-radius: 999px; }
+  .pair figcaption { padding: .8rem 1.1rem; font-weight: 700; font-size: .92rem; }
 
   .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
   .review { background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
@@ -98,7 +105,7 @@
   .contact-grid .card h3 { color: var(--cream); }
   .contact-grid a { color: var(--accent); font-weight: 800; text-decoration: none; word-break: break-all; }
 
-  footer { background: #0f2415; padding: 2.2rem 5vw; text-align: center; font-size: .85rem; color: var(--muted); }
+  footer { background: #01180d; padding: 2.2rem 5vw; text-align: center; font-size: .85rem; color: var(--muted); }
   footer .script { font-size: 1.6rem; display: block; margin-bottom: .4rem; }
   footer small { display: block; margin-top: .8rem; color: #7d8f74; }
   footer a { color: #7d8f74; }
@@ -114,11 +121,7 @@
 
 <header>
   <a class="brand" href="#top">
-    <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
-      <polyline points="10,36 32,14 54,36" fill="none" stroke="#e4ef67" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="27" y="28" width="10" height="10" fill="#e4ef67"/>
-      <path d="M8 48 Q22 42 34 48 T60 46" fill="none" stroke="#7fb069" stroke-width="3.5" stroke-linecap="round"/>
-    </svg>
+    <span style="background:#fff; border-radius:10px; padding:4px 8px; display:flex; align-items:center;"><img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:44px; width:auto; display:block;"></span>
     <b>Hallingdal<small>Hyttevask og Maling</small></b>
   </a>
   <nav>
@@ -162,7 +165,7 @@
 </div>
 
 <svg class="mountains" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#1d4527"/>
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#04331c"/>
 </svg>
 
 <section class="alt" id="omoss">
@@ -227,10 +230,42 @@
     <span class="kicker script">Gi hytta nytt liv</span>
     <h2>Se forskjellen</h2>
     <p class="lead">Her kan du se noen av prosjektene våre før og etter utført arbeid.</p>
-    <div class="gallery">
-      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
-      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
-      <div class="photo-slot"><span class="script">Før / etter</span><span style="font-size:.85rem">Foto kommer</span></div>
+    <div class="pairs">
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/fasade-for.jpg" alt="Fasade før maling" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/fasade-etter.jpg" alt="Fasade etter maling" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Utvendig maling av fasade</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/vegg-for.jpg" alt="Vegg og vindu før" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/vegg-etter.jpg" alt="Vegg og vindu etter" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Maling av vegg og vindu</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/kjokken-for.jpg" alt="Kjøkken før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/kjokken-etter.jpg" alt="Kjøkken etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Grundig vask av kjøkken</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/dusj-for.jpg" alt="Dusj før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/dusj-etter.jpg" alt="Dusj etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Vask av dusj</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/bad-for.jpg" alt="Bad før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/bad-etter.jpg" alt="Bad etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Vask av bad</figcaption>
+      </figure>
     </div>
   </div>
 </section>

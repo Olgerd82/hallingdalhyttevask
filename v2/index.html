@@ -8,15 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/logo.png">
 <style>
   :root {
-    --navy: #1b2f4e;
-    --green: #55963f;
-    --green-soft: #eef6ea;
-    --blue: #2f74c0;
-    --blue-soft: #eaf2fb;
-    --text: #33415a;
-    --muted: #64748c;
+    --navy: #001027;       /* тёмно-синий из лого */
+    --green: #54874b;      /* зелёный листьев из лого */
+    --green-soft: #eef4eb;
+    --blue: #105687;       /* голубой волны/звёзд из лого */
+    --blue-soft: #e9f1f8;
+    --text: #2b3a50;
+    --muted: #5f6e84;
     --line: #e3e9e1;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +42,7 @@
   .hero p { margin: 1.2rem 0 2rem; color: var(--muted); max-width: 34rem; font-size: 1.05rem; }
   .btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn { display: inline-block; padding: .95rem 1.9rem; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: .95rem; }
-  .btn-green { background: var(--green); color: #fff; box-shadow: 0 6px 18px rgba(85,150,63,.3); }
+  .btn-green { background: var(--green); color: #fff; box-shadow: 0 6px 18px rgba(84,135,75,.3); }
   .btn-blue { border: 2px solid var(--blue); color: var(--blue); }
   .btn:hover { filter: brightness(1.06); }
 
@@ -80,8 +81,14 @@
   .step:nth-child(odd)::before { background: var(--green); }
   .step p { font-size: .93rem; font-weight: 700; color: var(--navy); }
 
-  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-  .gallery .photo-slot { aspect-ratio: 4/3; }
+  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.3rem; }
+  .pair { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 0; box-shadow: 0 4px 14px rgba(0,16,39,.06); }
+  .pair .imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .shot { position: relative; }
+  .shot img { display: block; width: 100%; height: 230px; object-fit: cover; }
+  .shot span { position: absolute; left: .6rem; bottom: .6rem; background: rgba(0,16,39,.8); color: #fff; font-weight: 800; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .7rem; border-radius: 999px; }
+  .shot:last-child span { background: var(--green); }
+  .pair figcaption { padding: .8rem 1.1rem; font-weight: 800; font-size: .92rem; color: var(--navy); }
 
   .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
   .review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; box-shadow: 0 4px 14px rgba(27,47,78,.05); }
@@ -93,7 +100,7 @@
   .areas { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.6rem; }
   .areas span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: .45rem 1.2rem; font-weight: 800; font-size: .9rem; color: var(--navy); }
 
-  .cta { text-align: center; background: linear-gradient(135deg, var(--green) 0%, #3f7d2e 100%); color: #fff; border-radius: 20px; padding: 3.2rem 2rem; max-width: 1150px; margin: 0 auto; }
+  .cta { text-align: center; background: linear-gradient(135deg, var(--green) 0%, #3c6a35 100%); color: #fff; border-radius: 20px; padding: 3.2rem 2rem; max-width: 1150px; margin: 0 auto; }
   .cta h2 { color: #fff; }
   .cta p { color: #e4f0dd; margin-bottom: 1.8rem; }
   .cta .btn-white { background: #fff; color: var(--green); }
@@ -119,15 +126,7 @@
 
 <header>
   <a class="brand" href="#top">
-    <svg width="42" height="42" viewBox="0 0 64 64" aria-hidden="true">
-      <polyline points="10,34 32,13 54,34" fill="none" stroke="#1b2f4e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <line x1="14" y1="30" x2="14" y2="46" stroke="#1b2f4e" stroke-width="4" stroke-linecap="round"/>
-      <rect x="27" y="25" width="10" height="10" fill="#1b2f4e"/>
-      <path d="M44 22l1.2 3.2L48.4 26l-3.2 1.2L44 30l-1.2-2.8-3.2-1.2 3.2-1.2z" fill="#2f74c0"/>
-      <path d="M8 46 Q20 40 32 46 T56 44" fill="none" stroke="#2f74c0" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M14 52 Q26 47 38 52 T60 50" fill="none" stroke="#55963f" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M52 34 c6-8 12-6 12-6 s-2 8-12 6z" fill="#55963f"/>
-    </svg>
+    <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:52px; width:auto; display:block;">
     <b>Hallingdal<small>Hyttevask og Maling</small></b>
   </a>
   <nav>
@@ -234,10 +233,42 @@
     <span class="kicker">Gi hytta nytt liv</span>
     <h2>Se forskjellen</h2>
     <p class="lead">Her kan du se noen av prosjektene våre før og etter utført arbeid.</p>
-    <div class="gallery">
-      <div class="photo-slot"><b>Før / etter</b><span style="font-size:.85rem">Foto kommer</span></div>
-      <div class="photo-slot"><b>Før / etter</b><span style="font-size:.85rem">Foto kommer</span></div>
-      <div class="photo-slot"><b>Før / etter</b><span style="font-size:.85rem">Foto kommer</span></div>
+    <div class="pairs">
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/fasade-for.jpg" alt="Fasade før maling" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/fasade-etter.jpg" alt="Fasade etter maling" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Utvendig maling av fasade</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/vegg-for.jpg" alt="Vegg og vindu før" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/vegg-etter.jpg" alt="Vegg og vindu etter" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Maling av vegg og vindu</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/kjokken-for.jpg" alt="Kjøkken før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/kjokken-etter.jpg" alt="Kjøkken etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Grundig vask av kjøkken</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/dusj-for.jpg" alt="Dusj før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/dusj-etter.jpg" alt="Dusj etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Vask av dusj</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="imgs">
+          <div class="shot"><img src="../assets/gallery/bad-for.jpg" alt="Bad før vask" loading="lazy"><span>Før</span></div>
+          <div class="shot"><img src="../assets/gallery/bad-etter.jpg" alt="Bad etter vask" loading="lazy"><span>Etter</span></div>
+        </div>
+        <figcaption>Vask av bad</figcaption>
+      </figure>
     </div>
   </div>
 </section>
