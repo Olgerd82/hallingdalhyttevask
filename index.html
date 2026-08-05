@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Hallingdal Hyttevask — designforslag</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f2;
+    color: #222;
+    padding: 2rem;
+  }
+  .wrap { max-width: 720px; width: 100%; text-align: center; }
+  h1 { font-size: 1.6rem; margin-bottom: .5rem; }
+  p.sub { color: #666; margin-bottom: 2.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  a.card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e0e0dc;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .15s, box-shadow .15s;
+  }
+  a.card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .card h2 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .card span { color: #888; font-size: .9rem; }
+  footer { margin-top: 3rem; color: #aaa; font-size: .85rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hallingdal Hyttevask</h1>
+    <p class="sub">Velg et designforslag for å se det:</p>
+    <div class="cards">
+      <a class="card" href="v1/">
+        <h2>Forslag 1</h2>
+        <span>Lyst og minimalistisk</span>
+      </a>
+      <a class="card" href="v2/">
+        <h2>Forslag 2</h2>
+        <span>Mørkt og lunt fjellpreg</span>
+      </a>
+    </div>
+    <footer>Utkast — hallingdalhyttevask.no</footer>
+  </div>
+</body>
+</html>
