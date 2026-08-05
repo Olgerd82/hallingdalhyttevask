@@ -81,8 +81,8 @@
   .why li { list-style: none; display: flex; gap: .7rem; align-items: baseline; font-weight: 600; font-size: .96rem; }
   .why li::before { content: "✔"; color: var(--accent); font-weight: 900; }
 
-  .why-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; }
-  .supplies { max-height: 400px; width: auto; max-width: 100%; justify-self: center; -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); }
+  .why-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: stretch; }
+  .supplies { width: 100%; height: auto; align-self: center; -webkit-mask-image: linear-gradient(to right, transparent, #000 17%, #000 83%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 17%, #000 83%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent); mask-composite: intersect; }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; counter-reset: step; }
   .step { position: relative; background: var(--green-panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.2rem 1.2rem; counter-increment: step; }
   .step::before { content: counter(step); position: absolute; top: -.9rem; left: 1rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--accent); color: #012313; font-weight: 900; display: flex; align-items: center; justify-content: center; }
@@ -147,6 +147,7 @@
     .shot img { height: 160px; }
     .map-cta { grid-template-columns: 1fr; gap: 2rem; }
     .why-wrap { grid-template-columns: 1fr; }
+    .supplies { height: auto; max-height: 300px; }
   }
 </style>
 </head>
@@ -237,10 +238,11 @@
 
 <section class="alt">
   <div class="inner">
-    <span class="kicker script">Kvalitet du kan stole på</span>
-    <h2>Hvorfor velge oss?</h2>
     <div class="why-wrap">
-    <ul class="why" style="margin-top:1.6rem">
+      <div>
+        <span class="kicker script">Kvalitet du kan stole på</span>
+        <h2>Hvorfor velge oss?</h2>
+        <ul class="why" style="margin-top:1.4rem">
       <li>Profesjonelt utført arbeid</li>
       <li>Høy kvalitet</li>
       <li>Punktlig oppmøte</li>
@@ -250,7 +252,8 @@
       <li>Moderne utstyr</li>
       <li>Fornøydgaranti</li>
     </ul>
-    <img class="supplies" src="../assets/supplies.jpg" alt="Rengjøringsutstyr" loading="lazy">
+      </div>
+      <img class="supplies" src="../assets/supplies.jpg" alt="Rengjøringsutstyr" loading="lazy">
     </div>
   </div>
 </section>
