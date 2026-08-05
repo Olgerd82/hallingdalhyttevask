@@ -317,7 +317,7 @@
     <div style="margin-top:2rem; border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,16,39,.06);">
       <div id="map" style="height:380px;" title="Kart — vi holder til i Nesbyen og dekker hele Hallingdal"></div>
     </div>
-    <p style="margin-top:.9rem; color:var(--muted); font-size:.92rem;">Vi holder til i Nesbyen — midt i Hallingdal — og tar oppdrag i hele dalen. <a href="https://maps.app.goo.gl/4LhdcoN138cjxNraA" target="_blank" rel="noopener" style="color:var(--blue); font-weight:800;">Åpne i Google Maps</a></p>
+    <p style="margin-top:.9rem; color:var(--muted); font-size:.92rem;">Vi holder til i Nesbyen — midt i Hallingdal — og tar oppdrag i hele dalen.</p>
   </div>
 </section>
 
@@ -374,8 +374,10 @@
         center: [9.1320, 60.5636],
         zoom: 12.5,
         minZoom: 8,
-        cooperativeGestures: true
+        cooperativeGestures: true,
+        attributionControl: false
       });
+      map.addControl(new maplibregl.AttributionControl({ compact: true }));
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
       new maplibregl.Marker({ color: '#54874b' }).setLngLat([9.1320, 60.5636]).addTo(map);
     });
