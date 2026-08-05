@@ -118,6 +118,8 @@
   .cta .btn-white { background: #fff; color: var(--green); }
   .cta .btn-outline { border: 2px solid #fff; color: #fff; }
 
+  .cta-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; text-align: left; }
+  .cta-cols .contact-form { margin: 0; max-width: none; }
   .contact-form { max-width: 560px; margin: 2.2rem auto 0; display: grid; gap: .9rem; text-align: left; }
   .contact-form input, .contact-form textarea { width: 100%; background: #fff; border: 1px solid #fff; border-radius: 10px; padding: .85rem 1rem; color: var(--navy); font-family: inherit; font-size: .95rem; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: #8a97a8; }
@@ -142,6 +144,7 @@
     nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 1.1rem; background: #fff; border-bottom: 1px solid var(--line); padding: 1.2rem 5vw; box-shadow: 0 10px 20px rgba(0,16,39,.08); }
     #menu:checked ~ nav { display: flex; }
     .shot img { height: 160px; }
+    .cta-cols { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
 </head>
@@ -331,13 +334,16 @@
 
 <section>
   <div class="cta" id="kontakt">
-    <h2>Trenger du hjelp?</h2>
-    <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt — og befaringen er alltid gratis.</p>
-    <div class="btns" style="justify-content:center">
-      <a class="btn btn-white" href="tel:+4740591803">Ring 405 91 803</a>
-      <a class="btn btn-outline" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
-    </div>
-    <form class="contact-form" action="https://formsubmit.co/hallingdalarbeid88@gmail.com" method="POST">
+    <div class="cta-cols">
+      <div>
+        <h2>Trenger du hjelp?</h2>
+        <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt — og befaringen er alltid gratis.</p>
+        <div class="btns">
+          <a class="btn btn-white" href="tel:+4740591803">Ring 405 91 803</a>
+          <a class="btn btn-outline" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
+        </div>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/hallingdalarbeid88@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -349,7 +355,8 @@
       <textarea name="melding" rows="5" placeholder="Din forespørsel..." required></textarea>
       <label class="consent"><input type="checkbox" required> Jeg samtykker til at opplysningene brukes til å besvare henvendelsen min.</label>
       <button type="submit" class="btn btn-white">Send inn</button>
-    </form>
+      </form>
+    </div>
   </div>
   <div class="inner">
     <div class="contact-grid">

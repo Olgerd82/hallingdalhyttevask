@@ -114,6 +114,8 @@
   .cta h2 { margin-bottom: 1rem; }
   .cta p { color: var(--muted); margin-bottom: 1.8rem; }
 
+  .cta-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; text-align: left; margin-top: 1.5rem; }
+  .cta-cols .contact-form { margin: 0; max-width: none; }
   .contact-form { max-width: 560px; margin: 0 auto 3rem; display: grid; gap: .9rem; text-align: left; }
   .contact-form input, .contact-form textarea { width: 100%; background: var(--green-panel); border: 1px solid var(--line); border-radius: 8px; padding: .85rem 1rem; color: var(--cream); font-family: inherit; font-size: .95rem; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
@@ -139,6 +141,7 @@
     nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 1.1rem; background: var(--green-dark); border-bottom: 1px solid var(--line); padding: 1.2rem 5vw; }
     #menu:checked ~ nav { display: flex; }
     .shot img { height: 160px; }
+    .cta-cols { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
 </head>
@@ -331,13 +334,16 @@
 <section class="cta" id="kontakt">
   <div class="inner">
     <span class="script">Vi tilbyr gode og konkurransedyktige priser! ♡</span>
-    <h2>Trenger du hjelp?</h2>
-    <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt.</p>
-    <div class="btns" style="justify-content:center; margin-bottom:2.5rem">
-      <a class="btn btn-primary" href="tel:+4740591803">Ring 405 91 803</a>
-      <a class="btn btn-ghost" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
-    </div>
-    <form class="contact-form" action="https://formsubmit.co/hallingdalarbeid88@gmail.com" method="POST">
+    <div class="cta-cols">
+      <div>
+        <h2>Trenger du hjelp?</h2>
+        <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="tel:+4740591803">Ring 405 91 803</a>
+          <a class="btn btn-ghost" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
+        </div>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/hallingdalarbeid88@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -349,8 +355,9 @@
       <textarea name="melding" rows="5" placeholder="Din forespørsel..." required></textarea>
       <label class="consent"><input type="checkbox" required> Jeg samtykker til at opplysningene brukes til å besvare henvendelsen min.</label>
       <button type="submit" class="btn btn-primary">Send inn</button>
-    </form>
-    <div class="contact-grid">
+      </form>
+    </div>
+    <div class="contact-grid" style="margin-top:3rem">
       <div class="card"><h3>📞 Telefon</h3><a href="tel:+4740591803">+47 405 91 803</a></div>
       <div class="card"><h3>📧 E-post</h3><a href="mailto:hallingdalarbeid88@gmail.com">hallingdalarbeid88@gmail.com</a></div>
       <div class="card"><h3><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-4px"><circle cx="12" cy="12" r="12" fill="#fff"/><path fill="#1877F2" d="M24 12c0-6.63-5.37-12-12-12S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08V12h3.05V9.36c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38C19.61 22.95 24 17.99 24 12z"/></svg> Facebook</h3><a href="https://www.facebook.com/share/1HPoJWWKtW/" target="_blank" rel="noopener">Hallingdal Hyttevask og Maling</a></div>
