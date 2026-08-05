@@ -114,6 +114,14 @@
   .cta h2 { margin-bottom: 1rem; }
   .cta p { color: var(--muted); margin-bottom: 1.8rem; }
 
+  .contact-form { max-width: 560px; margin: 0 auto 3rem; display: grid; gap: .9rem; text-align: left; }
+  .contact-form input, .contact-form textarea { width: 100%; background: var(--green-panel); border: 1px solid var(--line); border-radius: 8px; padding: .85rem 1rem; color: var(--cream); font-family: inherit; font-size: .95rem; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); }
+  .contact-form .consent { display: flex; gap: .6rem; align-items: flex-start; font-size: .85rem; color: var(--muted); }
+  .contact-form .consent input { width: auto; margin-top: .2rem; }
+  .contact-form button { border: 0; cursor: pointer; font-family: inherit; font-size: .95rem; }
+
   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.3rem; }
   .contact-grid .card { text-align: center; }
   .contact-grid .card h3 { color: var(--cream); }
@@ -325,10 +333,23 @@
     <span class="script">Vi tilbyr gode og konkurransedyktige priser! ♡</span>
     <h2>Trenger du hjelp?</h2>
     <p>Kontakt oss i dag for et gratis og uforpliktende tilbud. Vi svarer raskt.</p>
-    <div class="btns" style="justify-content:center; margin-bottom:3rem">
+    <div class="btns" style="justify-content:center; margin-bottom:2.5rem">
       <a class="btn btn-primary" href="tel:+4740591803">Ring 405 91 803</a>
       <a class="btn btn-ghost" href="mailto:hallingdalarbeid88@gmail.com">Send e-post</a>
     </div>
+    <form class="contact-form" action="https://formsubmit.co/hallingdalarbeid88@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Ny henvendelse fra nettsiden">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://olgerd82.github.io/hallingdalhyttevask/takk.html">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="navn" placeholder="Ditt navn" required>
+      <input type="email" name="epost" placeholder="Din e-post" required>
+      <input type="tel" name="telefon" placeholder="Ditt telefonnummer">
+      <textarea name="melding" rows="5" placeholder="Din forespørsel..." required></textarea>
+      <label class="consent"><input type="checkbox" required> Jeg samtykker til at opplysningene brukes til å besvare henvendelsen min.</label>
+      <button type="submit" class="btn btn-primary">Send inn</button>
+    </form>
     <div class="contact-grid">
       <div class="card"><h3>📞 Telefon</h3><a href="tel:+4740591803">+47 405 91 803</a></div>
       <div class="card"><h3>📧 E-post</h3><a href="mailto:hallingdalarbeid88@gmail.com">hallingdalarbeid88@gmail.com</a></div>
