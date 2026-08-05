@@ -91,7 +91,7 @@
   .why li::before { content: "✔"; color: var(--lime); font-weight: 900; }
 
   .why-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; }
-  .supplies { width: 100%; max-width: 400px; justify-self: center; -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); }
+  .supplies { max-height: 400px; width: auto; max-width: 100%; justify-self: center; -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 42%, transparent 82%); }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.2rem; counter-reset: step; }
   .step { position: relative; background: #fff; border: 1px solid var(--line-l); border-radius: 12px; padding: 1.6rem 1.2rem 1.2rem; counter-increment: step; box-shadow: 0 3px 10px rgba(1,35,19,.05); }
   .step::before { content: counter(step); position: absolute; top: -.9rem; left: 1rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--lime); color: var(--dark); font-weight: 900; display: flex; align-items: center; justify-content: center; }
