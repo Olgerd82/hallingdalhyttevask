@@ -35,12 +35,12 @@
   .sec-dark .script { color: var(--lime); }
   a { color: inherit; }
 
-  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 5vw; position: sticky; top: 0; background: rgba(253,253,251,.95); backdrop-filter: blur(6px); z-index: 10; border-bottom: 1px solid var(--line-l); }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 5vw; position: sticky; top: 0; background: rgba(253,253,251,.95); backdrop-filter: blur(6px); z-index: 10; border-bottom: 1px solid var(--line-l); }
   .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
-  .brand b { font-size: 1rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; color: var(--dark); }
-  .brand b small { display: block; font-size: .68rem; color: var(--green); letter-spacing: .14em; }
+  .brand b { font-size: 1.15rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; color: var(--dark); }
+  .brand b small { display: block; font-size: .75rem; color: var(--green); letter-spacing: .14em; }
   nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
-  nav a { text-decoration: none; font-size: .85rem; font-weight: 600; color: var(--muted-l); }
+  nav a { text-decoration: none; font-size: 1rem; font-weight: 600; color: var(--muted-l); }
   nav a:hover { color: var(--green); }
 
   .hero { padding: 4rem 5vw 3rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; max-width: 1150px; margin: 0 auto; }
@@ -62,6 +62,9 @@
   .badge { flex: 1 1 240px; display: flex; align-items: center; gap: .9rem; background: #fff; border: 1px solid var(--line-l); border-radius: 12px; padding: 1rem 1.3rem; font-weight: 800; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--dark); box-shadow: 0 3px 10px rgba(1,35,19,.05); }
   .badge svg { flex: none; width: 30px; height: 30px; stroke: var(--green); fill: none; stroke-width: 1.8; }
 
+  .pan-band { position: relative; height: 300px; background: url('../assets/panorama-band.jpg') center/cover no-repeat; }
+  .pan-band::before { content:''; position: absolute; left: 0; right: 0; top: 0; height: 50px; background: linear-gradient(180deg, #fdfdfb, rgba(253,253,251,0)); }
+  .pan-band::after { content:''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(0deg, #04331c, rgba(4,51,28,0)); }
   .mountains { display: block; width: 100%; height: 70px; margin-bottom: -1px; }
 
   section { padding: 4rem 5vw; }
@@ -111,6 +114,10 @@
   .stars { color: var(--green); letter-spacing: .15em; font-size: .9rem; }
   .review p { font-size: .93rem; flex: 1; }
   .review b { font-size: .85rem; color: var(--muted-l); font-weight: 600; }
+  .rev-who { display: flex; align-items: center; gap: .7rem; margin-top: .2rem; }
+  .ava { width: 38px; height: 38px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .78rem; background: var(--green); color: #fff; }
+  .review:nth-child(3n+2) .ava { background: var(--lime); color: #04331c; }
+  .review:nth-child(3n) .ava { background: #04331c; color: var(--cream); }
   .fb-note { margin-top: 1.6rem; text-align: center; font-weight: 700; color: var(--green); }
   .fb-note a { color: inherit; }
 
@@ -152,7 +159,7 @@
 
 <header>
   <a class="brand" href="#top">
-    <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:50px; width:auto; display:block;">
+    <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:60px; width:auto; display:block;">
     <b>Hallingdal<small>Hyttevask og Maling</small></b>
   </a>
   <input type="checkbox" id="menu" hidden>
@@ -197,9 +204,7 @@
   </div>
 </div>
 
-<svg class="mountains" style="background:#fdfdfb" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#04331c"/>
-</svg>
+<div class="pan-band" aria-hidden="true"></div>
 
 <section class="sec-dark" id="omoss" style="padding-top:2.5rem">
   <div class="inner">
@@ -329,12 +334,12 @@
     <h2>Hva sier kundene våre?</h2>
     <p class="lead">100&nbsp;% anbefalt på Facebook.</p>
     <div class="reviews">
-      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales mye! Har brukt dem for å vaske etter og før utleie av hytta vår og er kjempefornøyd!»</p><b>Mick Draeger</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales virkelig! Veldig hyggelige mennesker som gjorde en grundig og nøye jobb. Profesjonelle fra start til slutt – vi er kjempefornøyde!»</p><b>Martine Steen-Hansen</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Flinke og pålitelige folk. Anbefales!»</p><b>Nils Erland Mikkelsen</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Tusen takk for flott arbeid! Huset ble skinnende rent etter grundig vask. Hyggelige, effektive og pålitelige. Anbefales på det varmeste.»</p><b>Ole Kristian Kolstadbråten</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Brukte disse på vask hjemme. Meget fornøyd, og vil anbefale dem. Raske og effektive.»</p><b>Terje Dokken</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Flinke, hyggelige damer som gjorde en bra vaskejobb hos oss. De tok vindusvask innvendig, samt utvendig. Resultatet ble veldig bra! De var nøye og gjorde en god jobb.»</p><b>Tonje Gauteplass-Løstegård</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales mye! Har brukt dem for å vaske etter og før utleie av hytta vår og er kjempefornøyd!»</p><div class="rev-who"><span class="ava">MD</span><b>Mick Draeger</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales virkelig! Veldig hyggelige mennesker som gjorde en grundig og nøye jobb. Profesjonelle fra start til slutt – vi er kjempefornøyde!»</p><div class="rev-who"><span class="ava">MS</span><b>Martine Steen-Hansen</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke og pålitelige folk. Anbefales!»</p><div class="rev-who"><span class="ava">NM</span><b>Nils Erland Mikkelsen</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Tusen takk for flott arbeid! Huset ble skinnende rent etter grundig vask. Hyggelige, effektive og pålitelige. Anbefales på det varmeste.»</p><div class="rev-who"><span class="ava">OK</span><b>Ole Kristian Kolstadbråten</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Brukte disse på vask hjemme. Meget fornøyd, og vil anbefale dem. Raske og effektive.»</p><div class="rev-who"><span class="ava">TD</span><b>Terje Dokken</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke, hyggelige damer som gjorde en bra vaskejobb hos oss. De tok vindusvask innvendig, samt utvendig. Resultatet ble veldig bra! De var nøye og gjorde en god jobb.»</p><div class="rev-who"><span class="ava">TG</span><b>Tonje Gauteplass-Løstegård</b></div></div>
     </div>
     <p class="fb-note">Følg oss på <a href="https://www.facebook.com/share/1HPoJWWKtW/" target="_blank" rel="noopener">Facebook</a> — der finner du alle omtalene våre.</p>
   </div>
@@ -391,7 +396,7 @@
 <footer>
   <span class="script">Rent. Pent. Profesjonelt.</span>
   <div><b>Hallingdal Hyttevask og Maling</b> — profesjonell rengjøring og maling i Hallingdal.</div>
-  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · <a href="../">Til oversikt</a></small>
+  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · Illustrasjon: <a href="https://www.vecteezy.com" target="_blank" rel="noopener">Vecteezy.com</a> · <a href="../">Til oversikt</a></small>
 </footer>
 
 <div id="lb" role="dialog" aria-label="Forstørret bilde"><img alt=""></div>

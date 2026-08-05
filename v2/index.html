@@ -30,35 +30,37 @@
   body { font-family: 'Nunito Sans', system-ui, sans-serif; background: #fff; color: var(--text); line-height: 1.65; }
   a { color: inherit; }
 
-  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 5vw; position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); z-index: 10; border-bottom: 1px solid var(--line); }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 5vw; position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); z-index: 10; border-bottom: 1px solid var(--line); }
   .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--navy); }
-  .brand b { font-size: 1.02rem; font-weight: 900; line-height: 1.15; }
-  .brand b small { display: block; font-size: .7rem; font-weight: 700; color: var(--green); letter-spacing: .1em; text-transform: uppercase; }
+  .brand b { font-size: 1.35rem; font-weight: 900; line-height: 1.15; }
+  .brand b small { display: block; font-size: .82rem; font-weight: 700; color: var(--green); letter-spacing: .1em; text-transform: uppercase; }
   nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
-  nav a { text-decoration: none; font-size: .88rem; font-weight: 700; color: var(--muted); }
+  nav a { text-decoration: none; font-size: 1rem; font-weight: 700; color: var(--muted); }
   nav a:hover { color: var(--green); }
 
-  .hero { background: linear-gradient(180deg, var(--blue-soft), #fff 75%); padding: 4.5rem 5vw 3.5rem; }
+  .hero { background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.55) 42%, rgba(255,255,255,0) 68%, rgba(1,25,13,.38) 100%), url('../assets/panorama.jpg') center bottom / cover no-repeat; padding: 4.5rem 5vw 5rem; }
   .hero-inner { max-width: 1150px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; }
   .eyebrow { display: inline-block; background: var(--green-soft); color: var(--green); border-radius: 999px; padding: .35rem 1.1rem; font-weight: 800; font-size: .82rem; margin-bottom: 1.2rem; }
   .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; color: var(--navy); line-height: 1.15; }
   .hero h1 em { font-style: normal; color: var(--green); }
   .hero h1 em.blue { color: var(--blue); }
-  .hero p { margin: 1.2rem 0 2rem; color: var(--muted); max-width: 34rem; font-size: 1.05rem; }
+  .hero p { margin: 1.2rem 0 2rem; color: #1d2c45; font-weight: 600; max-width: 34rem; font-size: 1.05rem; }
   .btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn { display: inline-block; padding: .95rem 1.9rem; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: .95rem; }
   .btn-green { background: var(--green); color: #fff; box-shadow: 0 6px 18px rgba(84,135,75,.3); }
-  .btn-blue { border: 2px solid var(--blue); color: var(--blue); }
+  .btn-blue { border: 2px solid var(--blue); color: var(--blue); background: rgba(255,255,255,.92); }
   .btn:hover { filter: brightness(1.06); }
 
-  .photo-slot { aspect-ratio: 4/5; border: 2px dashed #b9cfae; border-radius: 16px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; color: var(--muted); text-align: center; padding: 1rem; box-shadow: 0 10px 30px rgba(27,47,78,.07); }
+  .photo-slot { aspect-ratio: 4/5; max-width: 340px; width: 100%; justify-self: end; border: 2px dashed #b9cfae; border-radius: 16px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; color: var(--muted); text-align: center; padding: 1rem; box-shadow: 0 10px 30px rgba(27,47,78,.07); }
   .photo-slot b { color: var(--green); }
 
-  .badges { max-width: 1150px; margin: 0 auto; padding: 0 5vw 3rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .badges { max-width: 1150px; margin: 3.5rem auto 0; display: flex; gap: 1rem; flex-wrap: wrap; }
   .badge { flex: 1 1 240px; display: flex; align-items: center; gap: .9rem; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.3rem; font-weight: 800; font-size: .88rem; color: var(--navy); box-shadow: 0 4px 14px rgba(27,47,78,.05); }
   .badge svg { flex: none; width: 32px; height: 32px; stroke: var(--blue); fill: none; stroke-width: 1.8; }
   .badge:nth-child(2) svg { stroke: var(--green); }
 
+  .mountains { display: block; width: 100%; height: 70px; margin-bottom: -1px; }
+  .mountains.over { margin-top: -70px; position: relative; z-index: 2; }
   section { padding: 4.2rem 5vw; }
   .inner { max-width: 1150px; margin: 0 auto; }
   .kicker { display: block; color: var(--blue); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; margin-bottom: .5rem; }
@@ -107,6 +109,10 @@
   .stars { color: #f0a500; letter-spacing: .15em; font-size: .9rem; }
   .review p { font-size: .93rem; flex: 1; }
   .review b { font-size: .85rem; color: var(--navy); }
+  .rev-who { display: flex; align-items: center; gap: .7rem; margin-top: .2rem; }
+  .ava { width: 38px; height: 38px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .78rem; background: var(--green); color: #fff; }
+  .review:nth-child(3n+2) .ava { background: var(--blue); }
+  .review:nth-child(3n) .ava { background: var(--navy); }
   .fb-note { margin-top: 1.6rem; text-align: center; font-weight: 800; color: var(--blue); }
 
   .areas { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.6rem; }
@@ -133,7 +139,7 @@
   .contact-grid .card { text-align: center; }
   .contact-grid a { color: var(--blue); font-weight: 800; text-decoration: none; word-break: break-all; }
 
-  footer { border-top: 1px solid var(--line); padding: 2.2rem 5vw; text-align: center; font-size: .88rem; color: var(--muted); }
+  footer { padding: 2.2rem 5vw; text-align: center; font-size: .88rem; color: var(--muted); }
   footer b { color: var(--navy); }
   footer small { display: block; margin-top: .7rem; color: #9aa6b8; }
   footer a { color: #9aa6b8; }
@@ -146,6 +152,7 @@
     #menu:checked ~ nav { display: flex; }
     .shot img { height: 160px; }
     .map-cta { grid-template-columns: 1fr; gap: 2rem; }
+    .badges { margin: 2rem auto 0; }
     .map-cta #map { min-height: 320px; }
   }
 </style>
@@ -154,7 +161,7 @@
 
 <header>
   <a class="brand" href="#top">
-    <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:52px; width:auto; display:block;">
+    <img src="../assets/logo.png" alt="Hallingdal Hyttevask og Maling" style="height:60px; width:auto; display:block;">
     <b>Hallingdal<small>Hyttevask og Maling</small></b>
   </a>
   <input type="checkbox" id="menu" hidden>
@@ -184,23 +191,26 @@
       <span style="font-size:.85rem">Plass til bilde</span>
     </div>
   </div>
+  <div class="badges">
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+      Rent og innbydende
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      Pålitelig og nøye
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 12l4-8c1.5 0 2.5 1 2.2 2.6L12.6 10H19c1.1 0 2 .9 2 2l-1.6 6.5c-.2 1-1 1.5-2 1.5H7"/></svg>
+      Gode priser og rask respons
+    </div>
+  </div>
 </div>
 
-<div class="badges">
-  <div class="badge">
-    <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
-    Rent og innbydende
-  </div>
-  <div class="badge">
-    <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-    Pålitelig og nøye
-  </div>
-  <div class="badge">
-    <svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 12l4-8c1.5 0 2.5 1 2.2 2.6L12.6 10H19c1.1 0 2 .9 2 2l-1.6 6.5c-.2 1-1 1.5-2 1.5H7"/></svg>
-    Gode priser og rask respons
-  </div>
-</div>
 
+<svg class="mountains" style="margin-top:-70px; position:relative; z-index:2;" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#eef4eb"/>
+</svg>
 <section class="soft-green" id="omoss">
   <div class="inner">
     <span class="kicker">Hvem er vi?</span>
@@ -210,6 +220,10 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#eef4eb" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#ffffff"/>
+</svg>
 <section id="tjenester">
   <div class="inner">
     <span class="kicker">Hva vi gjør</span>
@@ -227,6 +241,10 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#ffffff" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#e9f1f8"/>
+</svg>
 <section class="soft-blue">
   <div class="inner">
     <span class="kicker">Kvalitet du kan stole på</span>
@@ -244,6 +262,10 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#e9f1f8" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#ffffff"/>
+</svg>
 <section>
   <div class="inner">
     <span class="kicker">Enkelt og trygt</span>
@@ -258,6 +280,10 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#ffffff" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#eef4eb"/>
+</svg>
 <section class="soft-green">
   <div class="inner">
     <span class="kicker">Gi hytta nytt liv</span>
@@ -303,23 +329,31 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#eef4eb" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#ffffff"/>
+</svg>
 <section id="referanser">
   <div class="inner">
     <span class="kicker">Ekte tilbakemeldinger</span>
     <h2>Hva sier kundene våre?</h2>
     <p class="lead">100&nbsp;% anbefalt på Facebook.</p>
     <div class="reviews">
-      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales mye! Har brukt dem for å vaske etter og før utleie av hytta vår og er kjempefornøyd!»</p><b>Mick Draeger</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales virkelig! Veldig hyggelige mennesker som gjorde en grundig og nøye jobb. Profesjonelle fra start til slutt – vi er kjempefornøyde!»</p><b>Martine Steen-Hansen</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Flinke og pålitelige folk. Anbefales!»</p><b>Nils Erland Mikkelsen</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Tusen takk for flott arbeid! Huset ble skinnende rent etter grundig vask. Hyggelige, effektive og pålitelige. Anbefales på det varmeste.»</p><b>Ole Kristian Kolstadbråten</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Brukte disse på vask hjemme. Meget fornøyd, og vil anbefale dem. Raske og effektive.»</p><b>Terje Dokken</b></div>
-      <div class="review"><span class="stars">★★★★★</span><p>«Flinke, hyggelige damer som gjorde en bra vaskejobb hos oss. De tok vindusvask innvendig, samt utvendig. Resultatet ble veldig bra! De var nøye og gjorde en god jobb.»</p><b>Tonje Gauteplass-Løstegård</b></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales mye! Har brukt dem for å vaske etter og før utleie av hytta vår og er kjempefornøyd!»</p><div class="rev-who"><span class="ava">MD</span><b>Mick Draeger</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Anbefales virkelig! Veldig hyggelige mennesker som gjorde en grundig og nøye jobb. Profesjonelle fra start til slutt – vi er kjempefornøyde!»</p><div class="rev-who"><span class="ava">MS</span><b>Martine Steen-Hansen</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke og pålitelige folk. Anbefales!»</p><div class="rev-who"><span class="ava">NM</span><b>Nils Erland Mikkelsen</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Tusen takk for flott arbeid! Huset ble skinnende rent etter grundig vask. Hyggelige, effektive og pålitelige. Anbefales på det varmeste.»</p><div class="rev-who"><span class="ava">OK</span><b>Ole Kristian Kolstadbråten</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Brukte disse på vask hjemme. Meget fornøyd, og vil anbefale dem. Raske og effektive.»</p><div class="rev-who"><span class="ava">TD</span><b>Terje Dokken</b></div></div>
+      <div class="review"><span class="stars">★★★★★</span><p>«Flinke, hyggelige damer som gjorde en bra vaskejobb hos oss. De tok vindusvask innvendig, samt utvendig. Resultatet ble veldig bra! De var nøye og gjorde en god jobb.»</p><div class="rev-who"><span class="ava">TG</span><b>Tonje Gauteplass-Løstegård</b></div></div>
     </div>
     <p class="fb-note">Følg oss på <a href="https://www.facebook.com/share/1HPoJWWKtW/" target="_blank" rel="noopener">Facebook</a> — der finner du alle omtalene våre.</p>
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#ffffff" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#e9f1f8"/>
+</svg>
 <section class="soft-blue" id="omrader">
   <div class="inner">
     <span class="kicker">Din lokale ekspert</span>
@@ -365,9 +399,13 @@
   </div>
 </section>
 
+
+<svg class="mountains" style="background:#e9f1f8" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 70 L120 30 240 55 380 15 520 50 660 25 800 58 940 20 1080 48 1220 28 1340 52 1440 35 1440 70 Z" fill="#ffffff"/>
+</svg>
 <footer>
   <div><b>Hallingdal Hyttevask og Maling</b> — profesjonell rengjøring og maling i Hallingdal.</div>
-  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · <a href="../">Til oversikt</a></small>
+  <small>© 2026 MATIUKHOVA HYTTEVASK OG MALING · Org.nr 937 973 829 · Alle rettigheter forbeholdt. · Illustrasjon: <a href="https://www.vecteezy.com" target="_blank" rel="noopener">Vecteezy.com</a> · <a href="../">Til oversikt</a></small>
 </footer>
 
 <div id="lb" role="dialog" aria-label="Forstørret bilde"><img alt=""></div>
