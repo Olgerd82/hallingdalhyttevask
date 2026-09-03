@@ -6,8 +6,12 @@
 // og en samlet døgngrense så kanalen ikke kan oversvømmes.
 
 // ==== INNSTILLINGER ====================================================
+// Telegram er klargjort, men ikke koblet til ennå: fyll inn BOT_TOKEN og
+// CHAT_ID når boten er laget, så sendes henvendelsene også dit.
 const BOT_TOKEN = 'SETT_INN_BOT_TOKEN_HER';  // fra @BotFather
 const CHAT_ID   = 'SETT_INN_CHAT_ID_HER';    // f.eks. '@kanalnavn' eller '-100xxxxxxxxxx'
+
+const EMAIL_TO  = 'hallingdalarbeid88@gmail.com'; // tom streng '' = ingen e-post
 
 const MAX_PER_IP      = 3;     // maks innsendinger per IP ...
 const IP_WINDOW_SEC   = 3600;  // ... per time
@@ -88,6 +92,14 @@ if (BOT_TOKEN !== 'SETT_INN_BOT_TOKEN_HER') {
     ]);
     curl_exec($ch);
     curl_close($ch);
+}
+
+if (EMAIL_TO !== '') {
+    $emne = 'Ny henvendelse fra nettsiden';
+    $hode = "From: nettside@hyttevaskogmaling.no\r\n"
+          . "Reply-To: {$epost}\r\n"
+          . "Content-Type: text/plain; charset=UTF-8\r\n";
+    @mail(EMAIL_TO, $emne, $tekst, $hode);
 }
 
 ferdig();
