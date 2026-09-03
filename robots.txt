@@ -1,3 +1,4 @@
-# Utkast: stengt for indeksering til siden flyttes til hallingdalhyttevask.no
 User-agent: *
-Disallow: /
+Disallow:
+
+Sitemap: https://hyttevaskogmaling.no/sitemap.xml
