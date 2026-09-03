@@ -406,6 +406,7 @@
         <p style="margin-top:.9rem; color:var(--muted); font-size:.92rem;">Vi holder til i Nesbyen — midt i Hallingdal — og tar oppdrag i hele dalen.</p>
       </div>
       <form class="contact-form" action="send.php" method="POST">
+      <input type="hidden" name="fts" id="fts" value="">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <input type="text" name="navn" placeholder="Ditt navn" required>
       <input type="email" name="epost" placeholder="Din e-post" required>
@@ -436,6 +437,7 @@
 
 <div id="lb" role="dialog" aria-label="Forstørret bilde"><img alt=""></div>
 <script>
+  document.getElementById('fts').value = Date.now();
   var lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
   document.querySelectorAll('.shot img').forEach(function (im) {
     im.addEventListener('click', function () {
