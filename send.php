@@ -6,12 +6,16 @@
 // og en samlet døgngrense så kanalen ikke kan oversvømmes.
 
 // ==== INNSTILLINGER ====================================================
-// Telegram er klargjort, men ikke koblet til ennå: fyll inn BOT_TOKEN og
-// CHAT_ID når boten er laget, så sendes henvendelsene også dit.
-const BOT_TOKEN = 'SETT_INN_BOT_TOKEN_HER';  // fra @BotFather
-const CHAT_ID   = 'SETT_INN_CHAT_ID_HER';    // f.eks. '@kanalnavn' eller '-100xxxxxxxxxx'
-
-const EMAIL_TO  = 'hallingdalarbeid88@gmail.com'; // tom streng '' = ingen e-post
+// Hemmeligheter (bot-token m.m.) legges IKKE her — de ligger i config.php
+// på serveren, som ikke er med i git og ikke røres av auto-deploy.
+// Lag /public_html/config.php med:
+//   <?php
+//   $BOT_TOKEN = '...';        // fra @BotFather
+//   $CHAT_ID   = '@kanalnavn'; // eller '-100xxxxxxxxxx'
+$BOT_TOKEN = '';
+$CHAT_ID   = '';
+$EMAIL_TO  = 'hallingdalarbeid88@gmail.com'; // tom streng '' = ingen e-post
+if (is_file(__DIR__ . '/config.php')) { require __DIR__ . '/config.php'; }
 
 const MAX_PER_IP      = 3;     // maks innsendinger per IP ...
 const IP_WINDOW_SEC   = 3600;  // ... per time
@@ -82,11 +86,11 @@ $tekst = "📩 Ny henvendelse fra nettsiden\n\n"
        . ($telefon !== '' ? "📞 Telefon: {$telefon}\n" : '')
        . "\n💬 Melding:\n{$melding}";
 
-if (BOT_TOKEN !== 'SETT_INN_BOT_TOKEN_HER') {
-    $ch = curl_init('https://api.telegram.org/bot' . BOT_TOKEN . '/sendMessage');
+if ($BOT_TOKEN !== '' && $CHAT_ID !== '') {
+    $ch = curl_init('https://api.telegram.org/bot' . $BOT_TOKEN . '/sendMessage');
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => http_build_query(['chat_id' => CHAT_ID, 'text' => $tekst]),
+        CURLOPT_POSTFIELDS => http_build_query(['chat_id' => $CHAT_ID, 'text' => $tekst]),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 10,
     ]);
@@ -94,12 +98,12 @@ if (BOT_TOKEN !== 'SETT_INN_BOT_TOKEN_HER') {
     curl_close($ch);
 }
 
-if (EMAIL_TO !== '') {
+if ($EMAIL_TO !== '') {
     $emne = 'Ny henvendelse fra nettsiden';
     $hode = "From: nettside@hyttevaskogmaling.no\r\n"
           . "Reply-To: {$epost}\r\n"
           . "Content-Type: text/plain; charset=UTF-8\r\n";
-    @mail(EMAIL_TO, $emne, $tekst, $hode);
+    @mail($EMAIL_TO, $emne, $tekst, $hode);
 }
 
 ferdig();
