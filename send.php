@@ -17,7 +17,7 @@ $CHAT_ID   = '';
 $EMAIL_TO  = 'hallingdalarbeid88@gmail.com'; // tom streng '' = ingen e-post
 if (is_file(__DIR__ . '/config.php')) { require __DIR__ . '/config.php'; }
 
-const MAX_PER_IP      = 50;     // maks innsendinger per IP ...
+const MAX_PER_IP      = 3;     // maks innsendinger per IP ...
 const IP_WINDOW_SEC   = 3600;  // ... per time
 const MAX_PER_DAY_ALL = 40;    // maks innsendinger totalt per døgn (alle IP-er)
 const MIN_FILL_SEC    = 4;     // raskere utfylling enn dette = robot
