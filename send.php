@@ -14,7 +14,7 @@
 //   $CHAT_ID   = '@kanalnavn'; // eller '-100xxxxxxxxxx'
 $BOT_TOKEN = '';
 $CHAT_ID   = '';
-$EMAIL_TO  = 'hallingdalarbeid88@gmail.com'; // tom streng '' = ingen e-post
+$EMAIL_TO  = 'test-hyttevask0907@srv1.mail-tester.com'; // MIDLERTIDIG diagnose — bytt tilbake til hallingdalarbeid88@gmail.com
 if (is_file(__DIR__ . '/config.php')) { require __DIR__ . '/config.php'; }
 
 const MAX_PER_IP      = 3;     // maks innsendinger per IP ...
