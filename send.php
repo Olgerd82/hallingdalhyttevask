@@ -100,10 +100,13 @@ if ($BOT_TOKEN !== '' && $CHAT_ID !== '') {
 
 if ($EMAIL_TO !== '') {
     $emne = 'Ny henvendelse fra nettsiden';
-    $hode = "From: nettside@hyttevaskogmaling.no\r\n"
+    $hode = "From: Nettsiden <nettside@hyttevaskogmaling.no>\r\n"
           . "Reply-To: {$epost}\r\n"
+          . "MIME-Version: 1.0\r\n"
           . "Content-Type: text/plain; charset=UTF-8\r\n";
-    @mail($EMAIL_TO, $emne, $tekst, $hode);
+    // -f setter konvoluttavsenderen til domenet vårt slik at SPF/DKIM/DMARC
+    // stemmer overens — uten dette kan Gmail forkaste meldingen i stillhet.
+    @mail($EMAIL_TO, $emne, $tekst, $hode, '-fnettside@hyttevaskogmaling.no');
 }
 
 ferdig();
